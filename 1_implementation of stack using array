@@ -1,0 +1,52 @@
+https://www.codingninjas.com/studio/problems/stack-implementation-using-array_3210209?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf&leftPanelTabValue=SUBMISSION
+
+class Stack {
+    
+public:
+    int topindex;
+    int *arr;
+    int size;
+
+    Stack(int capacity) {
+        this->size = capacity;    
+        topindex=-1;
+        arr=new int[size];
+    }
+
+    void push(int num) {
+        if(size-topindex >= 2){
+            topindex++;
+            arr[topindex]=num;
+        }
+    }
+
+    int pop() {
+        if(topindex == -1){
+            return -1;
+        }
+        topindex--;
+        return arr[topindex+1];
+    }
+    
+    int top() {
+        if(topindex == -1){
+            return -1;
+        }
+        return arr[topindex];
+    }
+    
+    int isEmpty() {
+        if(topindex == -1){
+            return 1;
+        }
+        return 0;
+    }
+    
+    int isFull() {
+        if(size-topindex == 1){
+            return 1;
+        }
+        return 0;
+    }
+    
+};
