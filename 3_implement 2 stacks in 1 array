@@ -1,0 +1,53 @@
+https://www.codingninjas.com/studio/problems/two-stacks_983634?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_CodestudioLovebabbar5thfeb&utm_source=youtube&utm_medium=affiliate&utm_campaign=YouTube_CodestudioLovebabbar5thfeb&leftPanelTabValue=SUBMISSION
+
+#include <bits/stdc++.h> 
+class TwoStack {
+
+public:
+
+    int top_1;
+    int top_2;
+    int size;
+    int *arr;
+
+    TwoStack(int s) {
+        this->size=s;
+        arr=new int[size];
+        top_1=-1;
+        top_2=size;
+    }
+    
+    void push1(int num) {
+        if(top_2-top_1 > 1){
+            top_1++;
+            arr[top_1]=num;
+        }
+        return ;
+    }
+
+    void push2(int num) {
+         if(top_2-top_1 > 1){
+            top_2--;
+            arr[top_2]=num;
+        }
+        return ;
+    }
+
+    
+    int pop1() {
+        if(top_1 == -1){
+            return -1;
+        }
+        top_1--;
+        return arr[top_1+1];
+    }
+
+    
+    int pop2() {
+          if(top_2 == size){
+            return -1;
+        }
+        top_2++;
+        return arr[top_2-1];
+    }
+};
